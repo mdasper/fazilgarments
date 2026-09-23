@@ -36,24 +36,31 @@
 }
 
 .brand-logo-mark {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   background-color: var(--white-pure);
-  color: var(--maroon-primary);
-  border-radius: 6px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--ff-serif);
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  padding: 3px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 12px rgba(212, 175, 55, 0.22);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.brand-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  display: block;
 }
 
 .header-brand:hover .brand-logo-mark {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  border-color: var(--gold-accent, #d4af37);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 18px rgba(212, 175, 55, 0.5);
 }
 
 .brand-text-block {
@@ -232,5 +239,23 @@
   }
   .mobile-hamburger {
     display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .brand-logo-mark {
+    width: 44px;
+    height: 44px;
+  }
+  .brand-logo-img {
+    width: 38px;
+    height: 38px;
+  }
+  .brand-company-name {
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+  }
+  .nav-brand-motto-tag {
+    font-size: 0.6rem;
   }
 }

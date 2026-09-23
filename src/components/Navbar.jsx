@@ -36,8 +36,12 @@ export default function Navbar({ activeTab, onTabChange }) {
       <div className="container header-container">
         {/* Brand Logo & Clean Subtitle */}
         <div className="header-brand" onClick={() => handleLinkClick('home')}>
-          <div className="brand-logo-mark" style={{ background: '#ffffff', borderRadius: '50%', padding: '2px', boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }}>
-            <img src="/assets/client_logo_clean.png" alt="Fazil Garments & Textiles Logo" style={{ width: '38px', height: '38px', objectFit: 'contain' }} />
+          <div className="brand-logo-mark">
+            <img 
+              src="/assets/client_logo_clean.png" 
+              alt="Fazil Garments & Textiles Logo" 
+              className="brand-logo-img" 
+            />
           </div>
           <div className="brand-text-block">
             <span className="brand-company-name">FAZIL GARMENTS &amp; TEXTILES</span>
