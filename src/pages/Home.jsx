@@ -297,43 +297,6 @@ export default function Home({ onTabChange }) {
           </div>
         </div>
       </section>
-
-      {/* 7. INFINITE BRAND MARQUEE */}
-      <section className="home-marquee-section">
-        <div className="marquee-header scroll-anim">
-          <span className="eyebrow-white">TRUSTED BY RETAIL LEADERS</span>
-          <h3 className="marquee-title">Our Esteemed Clients & Partners</h3>
-        </div>
-        <div className="marquee-container">
-          <div className="marquee-track">
-            {/* Double the list to create an infinite seamless loop */}
-            {[...Array(2)].map((_, i) => (
-              <div key={i} className="marquee-group">
-                <span className="marquee-brand">Ramraj Cotton</span>
-                <span className="marquee-dot">•</span>
-                <span className="marquee-brand">Otto</span>
-                <span className="marquee-dot">•</span>
-                <span className="marquee-brand">The Chennai Silks</span>
-                <span className="marquee-dot">•</span>
-                <span className="marquee-brand">Pothys</span>
-                <span className="marquee-dot">•</span>
-                <span className="marquee-brand">Madurai Meenakshi Textiles</span>
-                <span className="marquee-dot">•</span>
-                <span className="marquee-brand">Naidu Hall</span>
-                <span className="marquee-dot">•</span>
-                <span className="marquee-brand">RmKV</span>
-                <span className="marquee-dot">•</span>
-                <span className="marquee-brand">Seematti</span>
-                <span className="marquee-dot">•</span>
-                <span className="marquee-brand">Kalyan Silks</span>
-                <span className="marquee-dot">•</span>
-                <span className="marquee-brand">Madurai Sungudi Traders</span>
-                <span className="marquee-dot">•</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   )
 }
