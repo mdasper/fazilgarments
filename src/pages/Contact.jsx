@@ -13,10 +13,44 @@ export default function Contact() {
   })
 
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setErrorMessage('')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: 'c8d5c368-4e4f-4d79-a24e-e884349952a0',
+          subject: `Wholesale Inquiry from ${formData.name} - Fazil Garments`,
+          from_name: 'Fazil Garments Website',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          quantity: formData.quantity,
+          message: formData.message,
+        })
+      })
+
+      const data = await response.json()
+      if (data.success) {
+        setSubmitted(true)
+      } else {
+        setErrorMessage(data.message || 'Submission failed. Please try again.')
+      }
+    } catch (err) {
+      setErrorMessage('Network error occurred. Please try again or contact us via WhatsApp.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -97,17 +131,22 @@ export default function Contact() {
                     </p>
                     <button
                       className="btn-maroon-solid"
-                      onClick={() => setSubmitted(false)}
+                      onClick={() => {
+                        setSubmitted(false)
+                        setFormData({ name: '', phone: '', email: '', quantity: '', message: '' })
+                      }}
                     >
                       Submit Another Requirement
                     </button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="rfp-clean-form">
+                    <input type="hidden" name="access_key" value="c8d5c368-4e4f-4d79-a24e-e884349952a0" />
                     <div className="form-clean-field">
                       <label>Your Name / Contact Person *</label>
                       <input
                         type="text"
+                        name="name"
                         required
                         placeholder="e.g. S. Murugan"
                         value={formData.name}
@@ -120,6 +159,7 @@ export default function Contact() {
                         <label>Phone / WhatsApp Number *</label>
                         <input
                           type="tel"
+                          name="phone"
                           required
                           placeholder="+91 86109 49429"
                           value={formData.phone}
@@ -130,6 +170,7 @@ export default function Contact() {
                         <label>Corporate / Business Email *</label>
                         <input
                           type="email"
+                          name="email"
                           required
                           placeholder="buyer@company.com"
                           value={formData.email}
@@ -142,6 +183,7 @@ export default function Contact() {
                       <label>Estimated Order Quantity *</label>
                       <input
                         type="text"
+                        name="quantity"
                         required
                         placeholder="e.g. 500 Units"
                         value={formData.quantity}
@@ -153,23 +195,32 @@ export default function Contact() {
                       <label>Your Message / Additional Requirements</label>
                       <textarea
                         rows="4"
+                        name="message"
                         placeholder="Tell us about your specific needs, timelines, or any other details..."
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       />
                     </div>
 
-                    <button type="submit" className="btn-maroon-solid btn-full-submit">
-                      <span>Submit Wholesale Inquiry</span>
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path
-                          d="M3 8H13M9 4L13 8L9 12"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                    {errorMessage && (
+                      <div style={{ color: '#b91c1c', background: '#fee2e2', padding: '0.75rem 1rem', borderRadius: '6px', fontSize: '0.9rem', marginBottom: '1rem', border: '1px solid #fecaca' }}>
+                        ⚠️ {errorMessage}
+                      </div>
+                    )}
+
+                    <button type="submit" className="btn-maroon-solid btn-full-submit" disabled={loading}>
+                      <span>{loading ? 'Submitting Inquiry...' : 'Submit Wholesale Inquiry'}</span>
+                      {!loading && (
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path
+                            d="M3 8H13M9 4L13 8L9 12"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
                     </button>
                   </form>
                 )}

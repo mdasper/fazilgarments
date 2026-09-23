@@ -18,10 +18,50 @@ export default function Partner() {
   })
 
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setErrorMessage('')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: 'c8d5c368-4e4f-4d79-a24e-e884349952a0',
+          subject: `B2B RFP Request from ${formData.name} (${formData.company}) - Fazil Garments`,
+          from_name: 'Fazil Garments Website',
+          name: formData.name,
+          company: formData.company,
+          email: formData.email,
+          phone: formData.phone,
+          region: formData.region,
+          fabric: formData.fabric,
+          collar: formData.collar,
+          volume: formData.volume,
+          custom_branding: formData.branding ? 'Yes' : 'No',
+          indicative_unit_price: `₹${getEstimate()} / garment`,
+          message: formData.message,
+        })
+      })
+
+      const data = await response.json()
+      if (data.success) {
+        setSubmitted(true)
+      } else {
+        setErrorMessage(data.message || 'Submission failed. Please try again.')
+      }
+    } catch (err) {
+      setErrorMessage('Network error occurred. Please try again or reach out on WhatsApp.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   // Calculate live dynamic price estimate
@@ -175,18 +215,30 @@ export default function Partner() {
                   </p>
                   <button
                     className="btn-gold-royal"
-                    onClick={() => setSubmitted(false)}
+                    onClick={() => {
+                      setSubmitted(false)
+                      setFormData({
+                        ...formData,
+                        name: '',
+                        company: '',
+                        email: '',
+                        phone: '',
+                        message: ''
+                      })
+                    }}
                   >
                     Configure Another Order
                   </button>
                 </div>
               ) : (
                 <form className="rfp-form" onSubmit={handleSubmit}>
+                  <input type="hidden" name="access_key" value="c8d5c368-4e4f-4d79-a24e-e884349952a0" />
                   <div className="form-row">
                     <div className="form-field">
                       <label>CONTACT PERSON *</label>
                       <input
                         type="text"
+                        name="name"
                         required
                         placeholder="e.g. Rajesh Kumar"
                         value={formData.name}
@@ -197,6 +249,7 @@ export default function Partner() {
                       <label>COMPANY / RETAIL BRAND *</label>
                       <input
                         type="text"
+                        name="company"
                         required
                         placeholder="e.g. Apex Apparel Chains"
                         value={formData.company}
@@ -210,6 +263,7 @@ export default function Partner() {
                       <label>CORPORATE EMAIL *</label>
                       <input
                         type="email"
+                        name="email"
                         required
                         placeholder="buyer@brand.com"
                         value={formData.email}
@@ -220,6 +274,7 @@ export default function Partner() {
                       <label>PHONE / WHATSAPP *</label>
                       <input
                         type="tel"
+                        name="phone"
                         required
                         placeholder="+91 86109 49429"
                         value={formData.phone}
@@ -231,6 +286,7 @@ export default function Partner() {
                   <div className="form-field">
                     <label>TARGET SUPPLY REGION</label>
                     <select
+                      name="region"
                       value={formData.region}
                       onChange={(e) => setFormData({ ...formData, region: e.target.value })}
                     >
@@ -247,23 +303,32 @@ export default function Partner() {
                     <label>ADDITIONAL PRODUCTION SPECIFICATIONS</label>
                     <textarea
                       rows="3"
+                      name="message"
                       placeholder="Specify custom GSM, embroidery requirements, delivery timelines..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     />
                   </div>
 
-                  <button type="submit" className="btn-gold-royal submit-btn">
-                    <span>Submit B2B RFP Request</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path
-                        d="M3 8H13M9 4L13 8L9 12"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                  {errorMessage && (
+                    <div style={{ color: '#f87171', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', padding: '0.75rem 1rem', borderRadius: '6px', fontSize: '0.9rem', marginBottom: '1rem' }}>
+                      ⚠️ {errorMessage}
+                    </div>
+                  )}
+
+                  <button type="submit" className="btn-gold-royal submit-btn" disabled={loading}>
+                    <span>{loading ? 'Submitting Request...' : 'Submit B2B RFP Request'}</span>
+                    {!loading && (
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path
+                          d="M3 8H13M9 4L13 8L9 12"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
                   </button>
                 </form>
               )}
