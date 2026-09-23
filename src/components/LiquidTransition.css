@@ -1,0 +1,63 @@
+/* Liquid Fabric Transition Curtain */
+.liquid-curtain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99990;
+  pointer-events: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.curtain-panel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.panel-1 {
+  background: var(--bg-maroon-midnight);
+  transition-delay: 0s;
+}
+
+.panel-2 {
+  background: var(--bg-maroon-deep);
+  transition-delay: 0.05s;
+}
+
+.panel-3 {
+  background: radial-gradient(circle at 50% 50%, var(--bg-maroon-crimson) 0%, var(--bg-maroon-deep) 100%);
+  transition-delay: 0.1s;
+}
+
+.curtain-thread-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  transform: translateY(-100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.liquid-thread-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8));
+}
+
+/* Entering State: Curtain wipes UP to cover screen */
+.liquid-curtain-overlay.curtain-entering .curtain-panel {
+  transform: translateY(0%);
+}
+
+/* Leaving State: Curtain wipes UP off the screen */
+.liquid-curtain-overlay.curtain-leaving .curtain-panel {
+  transform: translateY(-100%);
+}

@@ -1,0 +1,181 @@
+/* =========================================================
+   PROCESS PAGE STYLES (Clean Maroon & Crisp White)
+   ========================================================= */
+
+.process-page-clean {
+  background-color: var(--white-pure);
+  color: var(--text-primary);
+}
+
+.process-steps-section {
+  padding: 7.5rem 0;
+}
+
+.steps-flow-container {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+}
+
+.step-flow-row {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.step-flow-row.step-reverse {
+  grid-template-columns: 1.15fr 1fr;
+}
+
+.step-flow-row.step-reverse .step-media-side {
+  order: 2;
+}
+
+.step-flow-row.step-reverse .step-content-side {
+  order: 1;
+}
+
+.step-image-wrap {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+}
+
+.step-flow-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-smooth);
+}
+
+.step-image-wrap:hover .step-flow-img {
+  transform: scale(1.03);
+}
+
+.step-number-badge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background-color: var(--maroon-primary);
+  color: var(--white-pure);
+  padding: 0.5rem 1.1rem;
+  border-radius: 4px;
+  font-family: var(--ff-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  box-shadow: var(--shadow-md);
+}
+
+.step-location-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--maroon-primary);
+  background-color: var(--maroon-tag);
+  padding: 0.35rem 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.step-flow-title {
+  font-family: var(--ff-serif);
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  font-weight: 700;
+  color: var(--maroon-dark);
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+.step-flow-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.step-checkpoints-card {
+  padding: 2rem;
+  border-left: 4px solid var(--maroon-primary);
+}
+
+.checkpoints-heading {
+  font-family: var(--ff-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--maroon-primary);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.checkpoints-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checkpoints-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.check-bullet {
+  color: var(--maroon-primary);
+  font-weight: 800;
+}
+
+@media (max-width: 992px) {
+  .step-flow-row,
+  .step-flow-row.step-reverse {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .step-flow-row.step-reverse .step-media-side {
+    order: 1;
+  }
+  .step-flow-row.step-reverse .step-content-side {
+    order: 2;
+  }
+}
+
+/* CTA Banner */
+.process-cta-banner {
+  padding: 0 0 6rem 0;
+}
+
+/* Scroll Animation Classes */
+.hidden-step {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hidden-step.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CTA Centering Fix */
+.centered-subtext {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block;
+}
+
+.centered-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}

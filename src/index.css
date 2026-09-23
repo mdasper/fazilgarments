@@ -1,0 +1,358 @@
+/* =========================================================
+   FAZIL GARMENTS — Pure Maroon & Crisp White Design System
+   ========================================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Maroon Palette */
+  --maroon-primary: #4A0E17;
+  --maroon-dark: #30060D;
+  --maroon-midnight: #200308;
+  --maroon-deep: #5A121D;
+  --maroon-accent: #7D1C2A;
+  --maroon-tint: #FDF7F8;
+  --maroon-tag: #F4E8EA;
+
+  /* Pure & Soft White Palette */
+  --white-pure: #FFFFFF;
+  --white-soft: #FAF8F6;
+  --white-surface: #FFFFFF;
+  --white-card: #FFFFFF;
+  --bg-page: #FAF8F6;
+
+  /* Typography Colors */
+  --text-primary: #181516;
+  --text-muted: #595355;
+  --text-dim: #82787B;
+  --text-on-maroon: #FFFFFF;
+  --text-on-maroon-muted: #EAD9DC;
+
+  /* Borders & Accents */
+  --border-light: #E7DFD8;
+  --border-subtle: #EFE9E3;
+  --border-maroon: rgba(74, 14, 23, 0.16);
+  --accent-gold: #C5A059;
+
+  /* Typography Fonts */
+  --ff-serif: 'Playfair Display', Georgia, serif;
+  --ff-sans: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 2px 8px rgba(32, 3, 8, 0.04);
+  --shadow-md: 0 10px 30px rgba(32, 3, 8, 0.07);
+  --shadow-lg: 0 20px 50px rgba(32, 3, 8, 0.12);
+  --shadow-maroon: 0 12px 35px rgba(74, 14, 23, 0.25);
+
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--white-pure);
+}
+
+body {
+  font-family: var(--ff-sans);
+  background-color: var(--white-pure);
+  color: var(--text-primary);
+  line-height: 1.65;
+  overflow-x: hidden;
+  cursor: default !important; /* Normal standard cursor */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--white-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--maroon-primary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--maroon-dark);
+}
+
+::selection {
+  background: var(--maroon-primary);
+  color: var(--white-pure);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+button {
+  font-family: var(--ff-sans);
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* Standard Typography */
+.eyebrow-maroon {
+  display: inline-block;
+  font-family: var(--ff-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--maroon-primary);
+  margin-bottom: 0.85rem;
+}
+
+.eyebrow-white {
+  display: inline-block;
+  font-family: var(--ff-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-on-maroon-muted);
+  margin-bottom: 0.85rem;
+}
+
+.section-title-serif {
+  font-family: var(--ff-serif);
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.18;
+  color: var(--maroon-dark);
+  letter-spacing: -0.01em;
+}
+
+.section-title-white {
+  font-family: var(--ff-serif);
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.18;
+  color: var(--white-pure);
+  letter-spacing: -0.01em;
+}
+
+/* Buttons */
+.btn-maroon-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1rem 2.2rem;
+  background: var(--maroon-primary);
+  color: var(--white-pure);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  transition: all 0.3s var(--ease-smooth);
+  box-shadow: var(--shadow-maroon);
+}
+
+.btn-maroon-solid:hover {
+  background: var(--maroon-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(74, 14, 23, 0.35);
+}
+
+.btn-maroon-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2.1rem;
+  background: transparent;
+  color: var(--maroon-primary);
+  border: 1.5px solid var(--maroon-primary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.btn-maroon-outline:hover {
+  background: var(--maroon-primary);
+  color: var(--white-pure);
+  transform: translateY(-2px);
+}
+
+.btn-white-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1rem 2.2rem;
+  background: var(--white-pure);
+  color: var(--maroon-dark);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  transition: all 0.3s var(--ease-smooth);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-white-solid:hover {
+  background: var(--white-soft);
+  transform: translateY(-2px);
+}
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2.1rem;
+  background: transparent;
+  color: var(--white-pure);
+  border: 1.5px solid var(--white-pure);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.btn-outline-white:hover {
+  background: var(--white-pure);
+  color: var(--maroon-dark);
+  transform: translateY(-2px);
+}
+
+/* Card Styles */
+.card-white-elevated {
+  background: var(--white-pure);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.card-white-elevated:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--maroon-primary);
+  transform: translateY(-4px);
+}
+
+/* Page Header Banner Reusable */
+.page-header-maroon {
+  background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon-primary) 65%, var(--maroon-deep) 100%);
+  color: var(--white-pure);
+  padding: 9rem 0 5rem 0;
+  text-align: center;
+  border-bottom: 3px solid var(--maroon-primary);
+}
+
+.page-header-bg-image {
+  background-image: linear-gradient(rgba(36, 5, 10, 0.85), rgba(36, 5, 10, 0.85)), url('/assets/hero_maroon_fabric.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--white-pure);
+  padding: 13rem 0 11rem 0;
+  text-align: center;
+  border-bottom: 2px solid var(--gold-accent);
+}
+
+.phm-content {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.phm-sub {
+  font-size: 1.15rem;
+  color: var(--text-on-maroon-muted);
+  max-width: 680px;
+  margin: 1.25rem auto 0 auto;
+  line-height: 1.7;
+}
+
+/* --- Scroll Animations --- */
+.scroll-anim {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-anim.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Page Transitions --- */
+.page-fade-out {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.page-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  animation: pageFadeInAnim 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageFadeInAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Global CTA Banner Alignment --- */
+.cta-banner-box,
+.about-cta-box {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.cta-banner-sub,
+.cta-banner-sub-dark {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 680px !important;
+  line-height: 1.75 !important;
+}

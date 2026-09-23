@@ -1,0 +1,307 @@
+/* =========================================================
+   FAZIL GARMENTS & TEXTILES — ULTRA-PREMIUM WELCOME SCREEN
+   Clean Luxury Brand Reveal (No Loading Bar)
+   ========================================================= */
+
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 45%, #250711 0%, #120207 65%, #080104 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  overflow: hidden;
+  color: #ffffff;
+  transition: opacity 0.75s cubic-bezier(0.7, 0, 0.2, 1), 
+              transform 0.75s cubic-bezier(0.7, 0, 0.2, 1),
+              visibility 0.75s ease;
+  transform: scale(1);
+}
+
+.welcome-screen.fade-out {
+  opacity: 0;
+  transform: scale(1.05);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Ambient Radial Glows */
+.welcome-aura-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.35;
+  animation: auraPulse 6s ease-in-out infinite alternate;
+}
+
+.aura-maroon {
+  top: 25%;
+  left: 35%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(168, 29, 36, 0.55) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.aura-gold {
+  bottom: 25%;
+  right: 35%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.welcome-vignette-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* Content Container Card */
+.welcome-content-card {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 520px;
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 3.5rem 2.5rem 2.75rem;
+  text-align: center;
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.6), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.2),
+              0 0 50px rgba(168, 29, 36, 0.2);
+  animation: cardPopIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Logo Halo Ring */
+.welcome-logo-halo {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.halo-ring-outer {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #D4AF37, rgba(168, 29, 36, 0.4), #3B60C4, #D4AF37);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  padding: 2px;
+  animation: haloRotate 10s linear infinite;
+  opacity: 0.85;
+}
+
+.halo-ring-inner {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px dashed rgba(212, 175, 55, 0.4);
+  animation: haloRotate 16s linear reverse infinite;
+}
+
+.welcome-logo-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.welcome-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Typography Group */
+.welcome-brand-group {
+  margin-bottom: 2rem;
+  animation: textFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.welcome-brand-title {
+  font-family: 'Cinzel', 'Montserrat', 'Inter', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.25;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.welcome-brand-title .ampersand {
+  color: #D4AF37;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Gold Divider */
+.welcome-gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0.75rem auto 1rem;
+  width: 60%;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
+}
+
+.divider-diamond {
+  color: #D4AF37;
+  font-size: 0.65rem;
+}
+
+/* Motto */
+.welcome-brand-motto {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.motto-dot {
+  color: #D4AF37;
+  font-size: 0.75rem;
+}
+
+/* Subtle Badge Pill (No progress bar) */
+.welcome-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.15rem;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 50px;
+  animation: pillFade 1s ease 0.5s both;
+}
+
+.pill-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #D4AF37;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #D4AF37;
+  animation: dotPulse 1.5s infinite alternate;
+}
+
+.pill-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+}
+
+/* Keyframe Animations */
+@keyframes cardPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pillFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes haloRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes auraPulse {
+  0% { transform: scale(0.9) translateY(0); opacity: 0.25; }
+  100% { transform: scale(1.15) translateY(-20px); opacity: 0.45; }
+}
+
+@keyframes dotPulse {
+  0% { opacity: 0.4; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .welcome-content-card {
+    padding: 2.5rem 1.5rem 2rem;
+    border-radius: 22px;
+  }
+
+  .welcome-logo-halo {
+    width: 115px;
+    height: 115px;
+    margin-bottom: 1.5rem;
+  }
+
+  .welcome-brand-title {
+    font-size: 1.45rem;
+    letter-spacing: 1.5px;
+  }
+
+  .welcome-brand-motto {
+    font-size: 0.95rem;
+    gap: 0.5rem;
+  }
+
+  .pill-text {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+}

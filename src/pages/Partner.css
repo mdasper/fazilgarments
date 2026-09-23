@@ -1,0 +1,329 @@
+/* =========================================================
+   PARTNER & B2B CONFIGURATOR STYLES
+   ========================================================= */
+
+.partner-page-wrap {
+  background-color: var(--bg-maroon-deep);
+  color: var(--text-pearl);
+  overflow-x: hidden;
+  padding-bottom: 8rem;
+}
+
+.partner-hero {
+  padding: 12rem 0 6rem 0;
+  text-align: center;
+  background: radial-gradient(circle at 50% 30%, var(--bg-maroon-crimson) 0%, var(--bg-maroon-midnight) 80%);
+  border-bottom: 1px solid var(--border-gold-subtle);
+}
+
+.partner-hero-content {
+  max-width: 900px;
+}
+
+.partner-hero-sub {
+  font-size: 1.15rem;
+  color: var(--text-pearl-muted);
+  line-height: 1.8;
+  margin-top: 1.5rem;
+}
+
+.configurator-section {
+  padding: 8rem 0;
+}
+
+.configurator-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+/* Estimator Card */
+.config-estimator-card {
+  padding: 3.5rem;
+}
+
+.cec-head {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-gold-subtle);
+  padding-bottom: 1.5rem;
+}
+
+.cec-title {
+  font-family: var(--ff-display);
+  font-size: 2.2rem;
+  margin: 0.5rem 0;
+}
+
+.cec-sub {
+  font-size: 0.92rem;
+  color: var(--text-pearl-dim);
+}
+
+.config-group {
+  margin-bottom: 2rem;
+}
+
+.config-label {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--gold-champagne);
+  margin-bottom: 0.85rem;
+}
+
+.config-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.opt-btn {
+  padding: 0.85rem 1rem;
+  background: rgba(36, 5, 16, 0.6);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 4px;
+  color: var(--text-pearl-muted);
+  font-family: var(--ff-sans);
+  font-size: 0.82rem;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.opt-btn:hover {
+  border-color: var(--gold-champagne);
+  color: var(--gold-light);
+}
+
+.opt-btn.selected {
+  background: rgba(60, 9, 25, 0.9);
+  border-color: var(--gold-light);
+  color: #FFF;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+}
+
+/* Toggle Box */
+.toggle-box {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: rgba(36, 5, 16, 0.6);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-box.active {
+  border-color: var(--gold-champagne);
+  background: rgba(60, 9, 25, 0.85);
+}
+
+.tb-switch {
+  width: 44px;
+  height: 24px;
+  background: rgba(253, 253, 253, 0.1);
+  border-radius: 9999px;
+  position: relative;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.toggle-box.active .tb-switch {
+  background: var(--gold-champagne);
+}
+
+.tb-handle {
+  width: 18px;
+  height: 18px;
+  background: #FFF;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-box.active .tb-handle {
+  transform: translateX(20px);
+  background: var(--bg-maroon-midnight);
+}
+
+.tb-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.tb-text strong {
+  font-size: 0.9rem;
+  color: var(--text-pearl);
+}
+
+.tb-text span {
+  font-size: 0.75rem;
+  color: var(--text-pearl-dim);
+}
+
+/* Estimate Footer */
+.config-estimate-footer {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-gold-subtle);
+}
+
+.cef-label {
+  font-family: var(--ff-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-champagne);
+  display: block;
+}
+
+.cef-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0.35rem 0;
+}
+
+.cef-currency {
+  font-family: var(--ff-display);
+  font-size: 2.2rem;
+  color: var(--gold-light);
+}
+
+.cef-val {
+  font-family: var(--ff-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cef-unit {
+  font-size: 0.95rem;
+  color: var(--text-pearl-dim);
+}
+
+.cef-note {
+  font-size: 0.75rem;
+  color: var(--text-pearl-dim);
+  display: block;
+}
+
+/* B2B RFP Form Card */
+.b2b-form-card {
+  padding: 3.5rem;
+}
+
+.form-title {
+  font-family: var(--ff-display);
+  font-size: 2.2rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.form-desc {
+  font-size: 0.95rem;
+  color: var(--text-pearl-muted);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.rfp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field label {
+  font-family: var(--ff-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--gold-champagne);
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 0.95rem 1.2rem;
+  background: rgba(22, 2, 9, 0.75);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 4px;
+  color: var(--text-pearl);
+  font-family: var(--ff-sans);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--gold-champagne);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Success State */
+.form-success-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.success-crest {
+  font-size: 3rem;
+  color: var(--gold-champagne);
+  margin-bottom: 1rem;
+}
+
+.success-head {
+  font-family: var(--ff-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+
+.success-body {
+  font-size: 1rem;
+  color: var(--text-pearl-muted);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .configurator-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .config-estimator-card,
+  .b2b-form-card {
+    padding: 2.5rem 1.5rem;
+  }
+  .config-options-grid,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
